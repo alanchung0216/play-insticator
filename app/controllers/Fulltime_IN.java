@@ -3,27 +3,12 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
-import org.hibernate.SessionFactory;
-import org.hibernate.HibernateException; 
-import org.hibernate.cfg.Configuration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.hibernate.Session; 
-import org.hibernate.Transaction;
-
-
-//import com.avaje.ebean.Model;
-
 
 import models.Employee;
 import models.Fulltime;
-//import models.Person;
 import play.*;
-import play.data.Form;
-import play.data.FormFactory;
-//import play.data.Form;
 import play.mvc.*;
 import services.DataAccess;
 import util.TO_JSON;

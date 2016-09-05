@@ -3,15 +3,11 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.json.simple.JSONArray;
 
 import models.Employee;
 import models.Intern;
 import play.*;
-import play.data.Form;
-import play.data.FormFactory;
 import play.mvc.*;
 import services.DataAccess;
 import util.TO_JSON;
@@ -23,9 +19,6 @@ import views.html.*;
  */
 
 public class Intern_IN extends Controller{
-
-	
-	private FormFactory formFactory;
 
     /**
      * An action that renders an HTML page with a welcome message.

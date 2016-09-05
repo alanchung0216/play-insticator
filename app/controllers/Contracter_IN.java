@@ -3,19 +3,10 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.json.simple.JSONArray;
-
 import models.Contracter;
-
-//import com.avaje.ebean.Model;
-
-
 import models.Employee;
 import play.*;
-import play.data.Form;
-import play.data.FormFactory;
 import play.mvc.*;
 import services.DataAccess;
 import util.TO_JSON;

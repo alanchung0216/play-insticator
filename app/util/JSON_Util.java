@@ -7,17 +7,9 @@ import models.Employee;
 import models.Fulltime;
 import models.Intern;
 import models.Parttime;
-//import models.Person;
 
 public class JSON_Util {
-/*
-	JSONObject copyPerson(Person p){
-		JSONObject obj = new JSONObject();
-		obj.put("id", p.getId());
-		obj.put("name", p.getName());		
-		return obj;		
-	}
-	*/
+
 	JSONObject copyEmployee(Employee emp){
 		JSONObject obj = new JSONObject();
 		obj.put("type", "emp");

@@ -1,7 +1,5 @@
 package util;
 
-//import com.avaje.ebean.Model;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -14,12 +12,9 @@ import models.Employee;
 import models.Fulltime;
 import models.Intern;
 import models.Parttime;
-//import models.Person;
 
 
 public class TO_JSON {
-
-// create employee JSON file
 	
     public String toJSON(List<Employee> employees) {	
     	JSONArray list = new JSONArray();
@@ -43,25 +38,8 @@ public class TO_JSON {
             	 list.add(cp.copyEmployee(employee));
             }     		
     	}
-		//FileWriter file = new FileWriter("employees.json");
-		//file.write(list.toJSONString());
-		//file.flush();
-		//file.close();
 		System.out.println(list.toJSONString());
 		return list.toJSONString();
 	
     }
-    /*
-    public String toJSON1(List<Person> employees) {	
-    	JSONArray list = new JSONArray();
-    	for (int i=0; i < employees.size(); i++){
-    		JSONObject obj = new JSONObject();
-    		Person employee = employees.get(i);
-    		JSON_Util cp = new JSON_Util();
-    		list.add(cp.copyPerson(employee));
-    	}
-		System.out.println(list.toJSONString());
-		return list.toJSONString();
-    }
-    */
 }

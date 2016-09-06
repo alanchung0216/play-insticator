@@ -1,49 +1,76 @@
-This is your new Play application
-=================================
+Please see the code in
 
-This file will be packaged with your application when using `activator dist`.
+https://github.com/alanchung0216/play-java
 
-There are several demonstration files available in this template.
+this project will do the followings
+        
+    1. use Play Framework to get the employee data or CRUD
+       operations via URL mapping
+    2. set up Hibernate connection to postgres data base
+        and map objects to one employee table which consists
+        of employee and subclasses data
+    3. return the result with JSON format back to Browser
+    
+codes added to the following directories
 
-Controllers
-===========
+app/controllers
+app/models
+app/services
+app/views
+app/util
+conf/META-INF
+conf/
+build.sbt
+README
 
-- HomeController.java:
 
-  Shows how to handle simple HTTP requests.
 
-- AsyncController.java:
+Data entered from URL
+    http://localhost:9000/fulltime/Johnny/Smith/90000/15 
+    http://localhost:9000/parttime/Tom/Kite/40000/5
+    http://localhost:9000/contracter/Doug/Hill/65/10
+    http://localhost:9000/intern/Lisa/Clark/20
+    http://localhost:9000/fulltime/Greg/Mortan/120000/20
 
-  Shows how to do asynchronous programming when handling a request.
+Show all employees
+    http://localhost:9000/employees   
+    here is the return
+    
+    [{"fname":"Johnny","lname":"Smith","vacation":15,"id":1,"type":"fulltime","salary":90000},
+    {"fname":"Tom","lname":"Kite","workhours":5,"id":2,"type":"parttime","salary":40000},
+    {"fname":"Doug","lname":"Hill","overtimehours":10,"id":3,"type":"contracter","wage":65},
+    {"fname":"Lisa","lname":"Clark","id":4,"type":"intern","wage":20},
+    {"fname":"Greg","lname":"Mortan","vacation":20,"id":5,"type":"fulltime","salary":120000}] 
 
-- CountController.java:
+Change employee # 1 salary
+    http://localhost:9000/changePay/1/95000
+        
+Delete employee # 5
+    http://localhost:9000/delete/5
+    
+Show all employees again 
+    here is the return
+    
+    [{"fname":"Tom","lname":"Kite","workhours":5,"id":2,"type":"parttime","salary":40000},
+    {"fname":"Doug","lname":"Hill","overtimehours":10,"id":3,"type":"contracter","wage":65},
+    {"fname":"Lisa","lname":"Clark","id":4,"type":"intern","wage":20},
+    {"fname":"Johnny","lname":"Smith","vacation":15,"id":1,"type":"fulltime","salary":95000}]  
 
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
 
-Components
-==========
+Data Base server installed on my machine is PosrGresQL
 
-- Module.java:
+Content after one update employee #1 and one delete for employee #5 intern operation
 
-  Shows how to use Guice to bind all the components needed by your application.
+postgres=# select * from employee order by id asc;
+ id |     type     | first_name | last_name | salary | vacation | workhours | wage | overtimehours 
+----+--------------+------------+-----------+--------+----------+-----------+------+---------------
+  1 | fulltime_emp | Johnny     | Smith     |  95000 |       15 |           |      |              
+  2 | parttime_emp | Tom        | Kite      |  40000 |          |         5 |      |              
+  3 | contract_emp | Doug       | Hill      |        |          |           |   65 |            10
+  4 | intern_emp   | Lisa       | Clark     |        |          |           |   20 |              
+(4 rows)
 
-- Counter.java:
 
-  An example of a component that contains state, in this case a simple counter.
 
-- ApplicationTimer.java:
 
-  An example of a component that starts when the application starts and stops
-  when the application stops.
 
-Filters
-=======
-
-- Filters.java:
-
-  Creates the list of HTTP filters used by your application.
-
-- ExampleFilter.java
-
-  A simple filter that adds a header to every response.

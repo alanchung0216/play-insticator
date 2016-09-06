@@ -1,6 +1,6 @@
 Please see the code in
 
-https://github.com/alanchung0216/play-java
+https://github.com/alanchung0216/play-insticator
 
 this project will do the followings
         
@@ -13,13 +13,14 @@ this project will do the followings
     
 codes added to the following directories
 
-app/controllers
-app/models
-app/services
-app/views
-app/util
-conf/META-INF
-conf/
+app/controllers/*.java
+app/models/*.java
+app/services/DataAccess.java
+app/util/*.java
+app/views/index.scala.html
+conf/META-INF/persistence.xml
+conf/routes
+conf/*.xml
 build.sbt
 README
 
